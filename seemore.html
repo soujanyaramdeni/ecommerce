@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url("https://th.bing.com/th/id/OIP.d5sxFKAUxaa4b9OtsNkvGQHaE8?w=295&h=198&c=7&r=0&o=5&dpr=1.3&pid=1.7");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        button{
+            padding:1%;
+            font-size: large;
+            width: 70px;
+            border-radius: 5px;
+            background-color: black;
+            color: white;
+        }
+        div{
+           margin-top: 1%;
+           border: 2px solid rgb(94, 94, 94);
+           background-color:  rgb(145, 131, 143);
+           color: white;
+           width: 400px;
+           height: 450px;
+           text-align: center;
+           border-radius: 5%;
+           box-shadow:  0 0 7px 7px rgb(90, 90, 90);
+        }
+        #img{
+            border: 2px solid white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body><br>
+    <button>Back</button><br><br>
+    <center><div></div></center>
+</body>
+<script>  
+    let divget=document.getElementsByTagName("div");
+    let btn=document.getElementsByTagName("button");
+    //console.log(btn);
+    btn[0].addEventListener("click",()=>{
+        window.history.back();
+    })
+    let val=JSON.parse(localStorage.getItem("seemore"));
+    console.log(val);
+    let span1get=document.createElement("span");
+    let img=document.createElement("img");
+    img.id="img";
+    img.style.width="120px";
+    img.style.paddingTop="3%"
+    img.setAttribute("src",val.image);
+    
+
+    let cate=document.createElement("h2");
+    cate.innerText="Category : "+ val.category;
+    cate.style.color="black"
+    let desc=document.createElement("p");
+    desc.innerText="Description : "+ val.description;
+    desc.style.color="black"
+    let price=document.createElement("p");
+    price.innerText="Price : "+ val.price;
+    price.style.color="black"
+    span1get.appendChild(img)
+    span1get.append(cate)
+    span1get.append(desc)
+    span1get.append(price)
+    divget[0].appendChild(span1get)
+
+</script>
+</html>
